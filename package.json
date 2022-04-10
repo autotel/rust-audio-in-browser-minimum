@@ -1,0 +1,45 @@
+{
+  "name": "esoteric-machine-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.html",
+  "bin": {
+    "create-wasm-app": ".bin/create-wasm-app.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack -w --mode development",
+    "dev": "webpack -w --mode development",
+    "compile-watch": "webpack -w --mode production",
+    "compile": "webpack",
+    "sass": "sass src-scss/index.scss dist/index.css --watch",
+    "doc": "jsdoc -d ./doc -r ./src/ -c ./jsdoc.json",
+    "serve": "cd ./dist && static-https-server",
+    "build": "webpack --config webpack.config.js",
+    "js-build": "webpack --config webpack.config.js",
+    "rust-build": ". ./recompile-rust.sh",
+    "start": "nw"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "copy-webpack-plugin": "^5.0.0",
+    "driftless": "^2.0.3",
+    "fmath": "^1.0.1",
+    "hello-wasm-pack": "^0.1.0",
+    "jsdoc": "^3.6.6",
+    "light-server": "^2.9.1",
+    "nw": "^0.63.0",
+    "paper": "^0.12.15",
+    "pixi.js": "^6.2.2",
+    "random-seedable": "^1.0.8",
+    "raw-loader": "^4.0.2",
+    "serve": "^13.0.2",
+    "text-decoding": "^1.0.0",
+    "tone": "^14.7.77",
+    "wasm-game-of-life": "file:./rust/pkg/rrr.js",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^3.11.3"
+  }
+}

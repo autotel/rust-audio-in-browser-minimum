@@ -1,0 +1,1 @@
+after compiling this, the result goes to pkg folder. then it can be included as if it were a js file

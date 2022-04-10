@@ -37,6 +37,7 @@ pub fn greet() {
 pub struct PolyManager {
     max_voices: usize,
     last_stolen_voice: usize,
+    dummy_frequency: f32,
 }
 #[wasm_bindgen]
 impl PolyManager {
@@ -47,6 +48,7 @@ impl PolyManager {
         let ret = PolyManager {
             max_voices: 32,
             last_stolen_voice: 0,
+            dummy_frequency: 220.,
         };
 
         ret
@@ -54,10 +56,10 @@ impl PolyManager {
     pub fn trig(&mut self, freq: f32, amp: f32) {
         // does a thing
     }
-    pub fn get_dummy_block(self, block_size: usize) -> Vec<f32> {
+    pub fn get_dummy_block(&self, block_size: usize) -> Vec<f32> {
         let mut mix = Vec::new();
         for sample_n in 0..block_size {
-            let f = 220.;
+            let f = self.dummy_frequency;
             let sf = SAMPLING_RATE as f32 / f;
             // let rand: f32 = rand::random(); // Also got problems with rand. Left that for later.
             let rand: f32 = ((sample_n as f32 / sf) % 1.) - 0.5; // using sawtooth instead.
